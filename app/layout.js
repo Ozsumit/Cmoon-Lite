@@ -1,22 +1,23 @@
 "use client";
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import LiteNavbar from '@/components/lite/LiteNavbar';
-import './globals.css';
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import LiteNavbar from "@/components/lite/LiteNavbar";
+import "./globals.css";
+import LiteModeBanner from "@/components/lite/litemodebanner";
 
 const m3Theme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
     primary: {
-      main: '#D0BCFF',
+      main: "#D0BCFF",
     },
     secondary: {
-      main: '#CCC2DC',
+      main: "#CCC2DC",
     },
     background: {
-      default: '#1C1B1F',
-      paper: '#25232A',
+      default: "#1C1B1F",
+      paper: "#25232A",
     },
   },
   shape: {
@@ -27,7 +28,7 @@ const m3Theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 24,
-          textTransform: 'none',
+          textTransform: "none",
           fontWeight: 500,
         },
       },
@@ -36,7 +37,7 @@ const m3Theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 28,
-          backgroundColor: '#25232A',
+          backgroundColor: "#25232A",
         },
       },
     },
@@ -49,11 +50,10 @@ export default function RootLayout({ children }) {
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={m3Theme}>
+            <LiteModeBanner />
             <CssBaseline />
             <div className="flex flex-col min-h-screen bg-[#1C1B1F] text-[#E6E1E5]">
-              <main className="flex-grow pb-20">
-                {children}
-              </main>
+              <main className="flex-grow pb-20">{children}</main>
               <LiteNavbar />
             </div>
           </ThemeProvider>
